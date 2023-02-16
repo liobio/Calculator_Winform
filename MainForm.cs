@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Calculator.Properties;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,6 +9,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 
 namespace Calculator
 {
@@ -106,6 +108,52 @@ namespace Calculator
 
         }
         #endregion
+
+        #region 拖动无窗体的控件
+        [DllImport("user32.dll")]
+        public static extern bool ReleaseCapture();
+        [DllImport("user32.dll")]
+        public static extern bool SendMessage(IntPtr hwnd, int wMsg, int wParam, int lParam);
+
+        public const int WM_SYSCOMMAND = 0x0112;
+        public const int SC_MOVE = 0xF010;
+        public const int HTCAPTION = 0x0002;
+        private void Panel_MouseDown(object sender, MouseEventArgs e)
+        {
+            //拖动窗体
+            ReleaseCapture();
+            SendMessage(this.Handle, WM_SYSCOMMAND, SC_MOVE + HTCAPTION, 0);
+        }
+        #endregion
+
+        #region 工具栏事件
+        private void Min_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+        private void Max_Click(object sender, EventArgs e)
+        {
+            Image backImage;
+            Button btn_Max = (Button)sender;
+            if (this.WindowState == FormWindowState.Maximized)
+            {
+                this.WindowState = FormWindowState.Normal;
+                backImage = Resources.Max;
+                btn_Max.BackgroundImage = backImage;
+                return;
+            }
+            this.WindowState = FormWindowState.Maximized;
+            backImage = Resources.Restore;
+            btn_Max.BackgroundImage = backImage;
+
+        }
+        private void Close_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        #endregion
+
+
         public MainForm()
         {
             InitializeComponent();

@@ -35,9 +35,9 @@
             this.MaxBtn = new System.Windows.Forms.Button();
             this.CloseBtn = new System.Windows.Forms.Button();
             this.HistoryPanel = new System.Windows.Forms.Panel();
-            this.Formulapanel = new System.Windows.Forms.Panel();
-            this.Resultpanel = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.HistoryBtn = new System.Windows.Forms.Button();
+            this.FormulaPanel = new System.Windows.Forms.Panel();
+            this.ResultPanel = new System.Windows.Forms.Panel();
             this.TopPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.HistoryPanel.SuspendLayout();
@@ -56,6 +56,7 @@
             this.TopPanel.Name = "TopPanel";
             this.TopPanel.Size = new System.Drawing.Size(384, 32);
             this.TopPanel.TabIndex = 0;
+            this.TopPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Panel_MouseDown);
             // 
             // label1
             // 
@@ -117,49 +118,49 @@
             // 
             // HistoryPanel
             // 
-            this.HistoryPanel.Controls.Add(this.button1);
+            this.HistoryPanel.Controls.Add(this.HistoryBtn);
             this.HistoryPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.HistoryPanel.Location = new System.Drawing.Point(0, 32);
             this.HistoryPanel.Name = "HistoryPanel";
             this.HistoryPanel.Size = new System.Drawing.Size(384, 32);
             this.HistoryPanel.TabIndex = 1;
             // 
-            // Formulapanel
+            // HistoryBtn
             // 
-            this.Formulapanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Formulapanel.Location = new System.Drawing.Point(0, 64);
-            this.Formulapanel.Name = "Formulapanel";
-            this.Formulapanel.Size = new System.Drawing.Size(384, 64);
-            this.Formulapanel.TabIndex = 2;
+            this.HistoryBtn.BackgroundImage = global::Calculator.Properties.Resources.History;
+            this.HistoryBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.HistoryBtn.Dock = System.Windows.Forms.DockStyle.Right;
+            this.HistoryBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.HistoryBtn.ForeColor = System.Drawing.SystemColors.Control;
+            this.HistoryBtn.Location = new System.Drawing.Point(352, 0);
+            this.HistoryBtn.Name = "HistoryBtn";
+            this.HistoryBtn.Size = new System.Drawing.Size(32, 32);
+            this.HistoryBtn.TabIndex = 0;
+            this.HistoryBtn.UseVisualStyleBackColor = true;
             // 
-            // Resultpanel
+            // FormulaPanel
             // 
-            this.Resultpanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Resultpanel.Location = new System.Drawing.Point(0, 128);
-            this.Resultpanel.Name = "Resultpanel";
-            this.Resultpanel.Size = new System.Drawing.Size(384, 64);
-            this.Resultpanel.TabIndex = 3;
+            this.FormulaPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.FormulaPanel.Location = new System.Drawing.Point(0, 64);
+            this.FormulaPanel.Name = "FormulaPanel";
+            this.FormulaPanel.Size = new System.Drawing.Size(384, 64);
+            this.FormulaPanel.TabIndex = 2;
             // 
-            // button1
+            // ResultPanel
             // 
-            this.button1.BackgroundImage = global::Calculator.Properties.Resources.History;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.SystemColors.Control;
-            this.button1.Location = new System.Drawing.Point(352, 0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(32, 32);
-            this.button1.TabIndex = 0;
-            this.button1.UseVisualStyleBackColor = true;
+            this.ResultPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ResultPanel.Location = new System.Drawing.Point(0, 128);
+            this.ResultPanel.Name = "ResultPanel";
+            this.ResultPanel.Size = new System.Drawing.Size(384, 64);
+            this.ResultPanel.TabIndex = 3;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(384, 640);
-            this.Controls.Add(this.Resultpanel);
-            this.Controls.Add(this.Formulapanel);
+            this.Controls.Add(this.ResultPanel);
+            this.Controls.Add(this.FormulaPanel);
             this.Controls.Add(this.HistoryPanel);
             this.Controls.Add(this.TopPanel);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -183,8 +184,8 @@
         private Button MaxBtn;
         private Button CloseBtn;
         private Panel HistoryPanel;
-        private Button button1;
-        private Panel Formulapanel;
-        private Panel Resultpanel;
+        private Button HistoryBtn;
+        private Panel FormulaPanel;
+        private Panel ResultPanel;
     }
 }
